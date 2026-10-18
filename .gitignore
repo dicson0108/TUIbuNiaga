@@ -42,3 +42,7 @@ tmp/
 temp/
 test_*.php
 debug_*.php
+
+# Design Assets
+UIUX Designs/
+
