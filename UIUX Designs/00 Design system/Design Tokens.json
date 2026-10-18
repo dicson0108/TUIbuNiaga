@@ -1,0 +1,433 @@
+{
+  "variables": [
+    {
+      "name": "color/ink",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.13725490868091583,
+          "g": 0.12156862765550613,
+          "b": 0.125490203499794,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/muted",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.4000000059604645,
+          "g": 0.4000000059604645,
+          "b": 0.4000000059604645,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/primary",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.843137264251709,
+          "g": 0.09803921729326248,
+          "b": 0.125490203499794,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/cream",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.9803921580314636,
+          "g": 0.9803921580314636,
+          "b": 0.9803921580314636,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/white",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/line",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.8901960849761963,
+          "g": 0.8901960849761963,
+          "b": 0.8901960849761963,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/sage",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.9490196108818054,
+          "g": 0.9490196108818054,
+          "b": 0.9490196108818054,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/peach",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 1,
+          "g": 0.9411764740943909,
+          "b": 0.9450980424880981,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/gold",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.843137264251709,
+          "g": 0.09803921729326248,
+          "b": 0.125490203499794,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "color/red",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "TEXT_FILL",
+        "STROKE_COLOR"
+      ],
+      "valuesByMode": {
+        "4:0": {
+          "r": 0.6392157077789307,
+          "g": 0.054901961237192154,
+          "b": 0.0941176488995552,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "space/0",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 0
+      }
+    },
+    {
+      "name": "space/4",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 4
+      }
+    },
+    {
+      "name": "space/8",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 8
+      }
+    },
+    {
+      "name": "space/12",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 12
+      }
+    },
+    {
+      "name": "space/16",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 16
+      }
+    },
+    {
+      "name": "space/20",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 20
+      }
+    },
+    {
+      "name": "space/24",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 24
+      }
+    },
+    {
+      "name": "space/32",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 32
+      }
+    },
+    {
+      "name": "space/40",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 40
+      }
+    },
+    {
+      "name": "space/48",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 48
+      }
+    },
+    {
+      "name": "space/64",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 64
+      }
+    },
+    {
+      "name": "space/80",
+      "type": "FLOAT",
+      "scopes": [
+        "CORNER_RADIUS",
+        "GAP"
+      ],
+      "valuesByMode": {
+        "4:0": 80
+      }
+    }
+  ],
+  "typography": [
+    {
+      "name": "Ibu Niaga / Display",
+      "font": {
+        "family": "Plus Jakarta Sans",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "fontSize": 56,
+      "lineHeight": {
+        "unit": "PERCENT",
+        "value": 145.00000476837158
+      }
+    },
+    {
+      "name": "Ibu Niaga / Heading 1",
+      "font": {
+        "family": "Plus Jakarta Sans",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "fontSize": 36,
+      "lineHeight": {
+        "unit": "PERCENT",
+        "value": 145.00000476837158
+      }
+    },
+    {
+      "name": "Ibu Niaga / Heading 2",
+      "font": {
+        "family": "Plus Jakarta Sans",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "fontSize": 24,
+      "lineHeight": {
+        "unit": "PERCENT",
+        "value": 145.00000476837158
+      }
+    },
+    {
+      "name": "Ibu Niaga / Heading 3",
+      "font": {
+        "family": "Plus Jakarta Sans",
+        "style": "SemiBold",
+        "variationSettings": {
+          "wght": 600
+        }
+      },
+      "fontSize": 20,
+      "lineHeight": {
+        "unit": "PERCENT",
+        "value": 145.00000476837158
+      }
+    },
+    {
+      "name": "Ibu Niaga / Body",
+      "font": {
+        "family": "Plus Jakarta Sans",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "fontSize": 16,
+      "lineHeight": {
+        "unit": "PERCENT",
+        "value": 145.00000476837158
+      }
+    },
+    {
+      "name": "Ibu Niaga / Label",
+      "font": {
+        "family": "Plus Jakarta Sans",
+        "style": "Medium",
+        "variationSettings": {
+          "wght": 500
+        }
+      },
+      "fontSize": 14,
+      "lineHeight": {
+        "unit": "PERCENT",
+        "value": 145.00000476837158
+      }
+    },
+    {
+      "name": "Ibu Niaga / Caption",
+      "font": {
+        "family": "Plus Jakarta Sans",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400
+        }
+      },
+      "fontSize": 12,
+      "lineHeight": {
+        "unit": "PERCENT",
+        "value": 145.00000476837158
+      }
+    }
+  ],
+  "brand": {
+    "symbolWidth": 32,
+    "symbolHeight": 42,
+    "gap": 12,
+    "wordmark": "Ibu\nNiaga",
+    "fontFamily": "Plus Jakarta Sans",
+    "fontWeight": "Bold",
+    "fontSize": 20,
+    "lineHeight": 21
+  }
+}
