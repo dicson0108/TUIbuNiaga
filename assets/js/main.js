@@ -48,13 +48,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 4. Modal toggles
+  // 4. Modal toggles with backdrop click-to-close & Escape key
   const modalTriggers = document.querySelectorAll('[data-modal-open]');
   modalTriggers.forEach(btn => {
     btn.addEventListener('click', function () {
       const modalId = this.getAttribute('data-modal-open');
       const modal = document.getElementById(modalId);
-      if (modal) modal.style.display = 'flex';
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
     });
   });
 
@@ -62,7 +65,21 @@ document.addEventListener('DOMContentLoaded', function () {
   modalCloses.forEach(btn => {
     btn.addEventListener('click', function () {
       const modal = this.closest('.modal-overlay');
-      if (modal) modal.style.display = 'none';
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Close modal when clicking directly on overlay backdrop
+  const modalOverlays = document.querySelectorAll('.modal-overlay');
+  modalOverlays.forEach(overlay => {
+    overlay.addEventListener('click', function (e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+        document.body.style.overflow = '';
+      }
     });
   });
 
@@ -76,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const cols = row.querySelectorAll('td, th');
       let rowData = [];
       cols.forEach(col => {
-        // Skip action button columns if desired
         let text = col.innerText.replace(/"/g, '""').trim();
         rowData.push('"' + text + '"');
       });
@@ -140,5 +156,62 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  // 8. Apple-style Scroll Depth for Header & Topbars
+  const publicHeader = document.querySelector('.public-header');
+  const workspaceTopbar = document.querySelector('.workspace-topbar');
+  const updateScrollDepth = () => {
+    const isScrolled = window.scrollY > 12;
+    if (publicHeader) {
+      publicHeader.classList.toggle('scrolled', isScrolled);
+    }
+    if (workspaceTopbar) {
+      workspaceTopbar.style.boxShadow = isScrolled ? '0 4px 16px rgba(0, 0, 0, 0.04)' : 'none';
+    }
+  };
+  window.addEventListener('scroll', updateScrollDepth, { passive: true });
+  updateScrollDepth();
+
+  // 9. Apple Fluid Mobile Navigation Drawer
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+  const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+
+  function openMobileNav() {
+    if (mobileNavDrawer && mobileNavBackdrop) {
+      mobileNavDrawer.classList.add('open');
+      mobileNavBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function closeMobileNav() {
+    if (mobileNavDrawer && mobileNavBackdrop) {
+      mobileNavDrawer.classList.remove('open');
+      mobileNavBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+      if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileNav);
+  if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', closeMobileNav);
+  if (mobileNavBackdrop) mobileNavBackdrop.addEventListener('click', closeMobileNav);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+        closeMobileNav();
+      }
+      modalOverlays.forEach(overlay => {
+        if (overlay.style.display === 'flex') {
+          overlay.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
 });
 

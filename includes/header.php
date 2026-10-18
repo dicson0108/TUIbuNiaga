@@ -93,6 +93,52 @@ $flash = get_flash();
         <a href="<?= BASE_URL ?>/login.php" class="btn btn-secondary btn-sm"><?= __('btn_login', 'Log in') ?></a>
         <a href="<?= BASE_URL ?>/register.php" class="btn btn-primary btn-sm"><?= __('btn_register', 'Register') ?></a>
       <?php endif; ?>
+
+      <!-- Mobile Menu Hamburger Button -->
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Apple-Style Mobile Navigation Sheet / Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div style="font-weight: 700; font-size: 16px; color: var(--color-ink);">Menu</div>
+      <button type="button" class="mobile-menu-btn" id="mobileMenuCloseBtn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <nav class="mobile-nav-links">
+      <a href="<?= BASE_URL ?>/index.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : '' ?>">Home</a>
+      <a href="<?= BASE_URL ?>/about.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'about.php') ? 'active' : '' ?>"><?= __('nav_about', 'About') ?></a>
+      <a href="<?= BASE_URL ?>/projects.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'projects.php' || basename($_SERVER['PHP_SELF']) == 'project_detail.php') ? 'active' : '' ?>"><?= __('nav_projects', 'Projects') ?></a>
+      <a href="<?= BASE_URL ?>/members.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'members.php' || basename($_SERVER['PHP_SELF']) == 'member_profile.php') ? 'active' : '' ?>"><?= __('nav_members', 'Members') ?></a>
+      <a href="<?= BASE_URL ?>/stories.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'stories.php' || basename($_SERVER['PHP_SELF']) == 'story_detail.php') ? 'active' : '' ?>"><?= __('nav_stories', 'Stories') ?></a>
+      <a href="<?= BASE_URL ?>/modules.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'modules.php' || basename($_SERVER['PHP_SELF']) == 'module_detail.php') ? 'active' : '' ?>"><?= __('nav_modules', 'Modules') ?></a>
+      <a href="<?= BASE_URL ?>/events.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'events.php' || basename($_SERVER['PHP_SELF']) == 'event_detail.php') ? 'active' : '' ?>"><?= __('nav_events', 'Events') ?></a>
+      <a href="<?= BASE_URL ?>/bazaar.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'bazaar.php' || basename($_SERVER['PHP_SELF']) == 'listing_detail.php') ? 'active' : '' ?>"><?= __('nav_bazaar', 'Bazaar') ?></a>
+      <a href="<?= BASE_URL ?>/help.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'help.php') ? 'active' : '' ?>"><?= __('nav_help', 'Help Center') ?></a>
+      <a href="<?= BASE_URL ?>/contact.php" class="mobile-nav-link <?= (basename($_SERVER['PHP_SELF']) == 'contact.php') ? 'active' : '' ?>"><?= __('nav_contact', 'Contact') ?></a>
+    </nav>
+
+    <div style="padding-top: 16px; border-top: 1px solid var(--color-line); display: flex; flex-direction: column; gap: 10px;">
+      <?php if (is_logged_in()): ?>
+        <?php $u = current_user(); ?>
+        <?php if ($u['role'] === 'admin'): ?>
+          <a href="<?= BASE_URL ?>/admin/index.php" class="btn btn-outline" style="width: 100%;">Admin Workspace</a>
+        <?php elseif ($u['role'] === 'moderator'): ?>
+          <a href="<?= BASE_URL ?>/moderator/index.php" class="btn btn-outline" style="width: 100%;">Moderator Workspace</a>
+        <?php else: ?>
+          <a href="<?= BASE_URL ?>/member/index.php" class="btn btn-outline" style="width: 100%;">My Dashboard</a>
+        <?php endif; ?>
+        <a href="<?= BASE_URL ?>/logout.php" class="btn btn-secondary" style="width: 100%;"><?= __('btn_logout', 'Log out') ?></a>
+      <?php else: ?>
+        <a href="<?= BASE_URL ?>/login.php" class="btn btn-secondary" style="width: 100%;"><?= __('btn_login', 'Log in') ?></a>
+        <a href="<?= BASE_URL ?>/register.php" class="btn btn-primary" style="width: 100%;"><?= __('btn_register', 'Register') ?></a>
+      <?php endif; ?>
     </div>
   </div>
 </header>

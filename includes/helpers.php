@@ -12,16 +12,13 @@ function e($string) {
     return htmlspecialchars($string ?? '', ENT_QUOTES, 'UTF-8');
 }
 
-// Render clean site brand logo & typography (Taylor's Ibu Niaga)
+// Render site brand logo & typography (Taylor's Ibu Niaga)
 function render_site_brand_html($customClass = '', $subtitle = 'Ibu Niaga'): string {
-    $logoUrl = BASE_URL . '/assets/images/logo/logo.png';
-    return '<span class="brand-group ' . e($customClass) . '">'
-        . '<img src="' . e($logoUrl) . '" alt="Taylor\'s University" class="brand-logo-img">'
-        . '<span class="brand-text">'
-        . '<span class="brand-title">Taylor\'s</span>'
-        . '<span class="brand-subtitle">' . e($subtitle) . '</span>'
-        . '</span>'
-        . '</span>';
+    $logo = e(BASE_URL . '/assets/images/logo/logo.png');
+    $cls = $customClass ? ' ' . e($customClass) : '';
+    $sub = e($subtitle);
+
+    return "<span class=\"brand-group{$cls}\"><img src=\"{$logo}\" alt=\"Taylor's University\" class=\"brand-logo-img\"><span class=\"brand-text\"><span class=\"brand-title\">Taylor's</span><span class=\"brand-subtitle\">{$sub}</span></span></span>";
 }
 
 // System setting getter
