@@ -14,11 +14,24 @@ define('DB_NAME', 'tu_ibu_niaga');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
-// Auto-detect base URL (works seamlessly in XAMPP subdir or php -S root)
-$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
-$basePath = rtrim($scriptDir, '/');
-// Strip subfolders like /member, /moderator, /admin if current script is in workspace
-$basePath = preg_replace('#/(member|moderator|admin)$#', '', $basePath);
+// Auto-detect base URL (works seamlessly in any XAMPP subdir or php -S root)
+$basePath = '';
+if (!empty($_SERVER['DOCUMENT_ROOT'])) {
+    $docRoot = str_replace('\\', '/', realpath($_SERVER['DOCUMENT_ROOT']));
+    $projectRoot = str_replace('\\', '/', realpath(dirname(__DIR__)));
+    if ($docRoot && $projectRoot && str_starts_with($projectRoot, $docRoot)) {
+        $basePath = rtrim(str_replace('\\', '/', substr($projectRoot, strlen($docRoot))), '/');
+    }
+}
+if ($basePath === '' && !empty($_SERVER['SCRIPT_NAME'])) {
+    $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+    $basePath = rtrim($scriptDir, '/');
+    // Strip subfolders like /member, /moderator, /admin if current script is in workspace
+    $basePath = preg_replace('#/(member|moderator|admin)$#', '', $basePath);
+    if ($basePath === '.') {
+        $basePath = '';
+    }
+}
 define('BASE_URL', $basePath === '' ? '' : $basePath);
 
 // App metadata
